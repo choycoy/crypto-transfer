@@ -18,7 +18,6 @@ export interface Network {
     decimals: number;
   };
   blockExplorer: string;
-  rpcUrl: string;
 }
 
 export const SUPPORTED_NETWORKS: Record<string, Network> = {
@@ -32,7 +31,6 @@ export const SUPPORTED_NETWORKS: Record<string, Network> = {
       symbol: 'POL',
       decimals: 18,
     },
-    rpcUrl: 'https://polygon-rpc.com/',
     blockExplorer: 'https://polygonscan.com/',
   },
   // ============ Ethereum Sepolia ============
@@ -45,7 +43,6 @@ export const SUPPORTED_NETWORKS: Record<string, Network> = {
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrl: 'https://api.sepolia.infura.io/v3/YOUR_INFURA_API_KEY',
     blockExplorer: 'https://sepolia.etherscan.io/',
   },
 };
