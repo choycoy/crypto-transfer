@@ -50,14 +50,12 @@ yarn dev
 
 - **Chain ID**: 137
 - **Native Currency**: POL
-- **RPC URL**: https://polygon-rpc.com/
 - **Block Explorer**: https://polygonscan.com/
 
 ### Ethereum Sepolia (Testnet)
 
 - **Chain ID**: 11155111
 - **Native Currency**: ETH
-- **RPC URL**: Configure your Infura API key in `constants/service.ts`
 - **Block Explorer**: https://sepolia.etherscan.io/
 
 ## Usage
