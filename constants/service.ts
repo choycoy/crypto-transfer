@@ -5,6 +5,7 @@ export enum AssetType {
 
 export enum NetworkName {
   POLYGON = 'polygon',
+Ethereum = 'ethereum',
 }
 
 export interface Network {
@@ -34,6 +35,19 @@ export const SUPPORTED_NETWORKS: Record<string, Network> = {
     rpcUrl: 'https://polygon-rpc.com/',
     blockExplorer: 'https://polygonscan.com/',
   },
+  // ============ Ethereum Sepolia ============
+  ethereumSepolia: {
+    chainId: 11155111,
+    name: 'Ethereum Sepolia',
+    symbol: 'ETH',
+    nativeCurrency: {
+      name: 'Ethereum',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+    rpcUrl: 'https://api.sepolia.infura.io/v3/YOUR_INFURA_API_KEY',
+    blockExplorer: 'https://sepolia.etherscan.io/',
+  },
 };
 
 // Token Interface
@@ -57,6 +71,14 @@ export const TOKEN_LIST: Token[] = [
     decimals: 18,
     network: 'polygon',
     isNative: true,
+  },
+  // ============ Ethereum Sepolia ============
+  {
+    address: process.env.NEXT_PUBLIC_ETHEREUM_SEPOLIA_TTK_CONTRACT_ADDRESS!,
+    symbol: 'TE',
+    name: 'Test Eth',
+    decimals: 18,
+    network: 'ethereumSepolia',
   },
 ];
 
