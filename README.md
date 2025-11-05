@@ -31,18 +31,12 @@ A modern, user-friendly web application for transferring cryptocurrency tokens o
 yarn install
 ```
 
-2. Create a `.env.local` file in the root directory:
-```env
-NEXT_PUBLIC_POLYGON_TTK_CONTRACT_ADDRESS = 0x3e34e0Cd45b3D72DfaB7f7F4652F852CC7E3dF78
-NEXT_PUBLIC_ETHEREUM_SEPOLIA_TTK_CONTRACT_ADDRESS = 0xB6e0BA252F7d13Ee42E92F4c6d05FfAecF8f46C3
-```
-
-3. Run the development server:
+2. Run the development server:
 ```bash
 yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Supported Networks
 

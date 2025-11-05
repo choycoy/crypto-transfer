@@ -47,6 +47,12 @@ export const SUPPORTED_NETWORKS: Record<string, Network> = {
   },
 };
 
+// Token Contract Addresses
+export const TOKEN_CONTRACTS = {
+  POLYGON_TTK: '0x3e34e0Cd45b3D72DfaB7f7F4652F852CC7E3dF78',
+  ETHEREUM_SEPOLIA_TTK: '0xB6e0BA252F7d13Ee42E92F4c6d05FfAecF8f46C3',
+} as const;
+
 // Token Interface
 export interface Token {
   address: string;
@@ -62,7 +68,7 @@ export interface Token {
 export const TOKEN_LIST: Token[] = [
   // ============ POLYGON ============
   {
-    address: process.env.NEXT_PUBLIC_POLYGON_TTK_CONTRACT_ADDRESS!,
+    address: TOKEN_CONTRACTS.POLYGON_TTK,
     symbol: 'TTK',
     name: 'Test Token',
     decimals: 18,
@@ -71,7 +77,7 @@ export const TOKEN_LIST: Token[] = [
   },
   // ============ Ethereum Sepolia ============
   {
-    address: process.env.NEXT_PUBLIC_ETHEREUM_SEPOLIA_TTK_CONTRACT_ADDRESS!,
+    address: TOKEN_CONTRACTS.ETHEREUM_SEPOLIA_TTK,
     symbol: 'TE',
     name: 'Test Eth',
     decimals: 18,
