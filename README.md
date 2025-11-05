@@ -5,7 +5,7 @@ A modern, user-friendly web application for transferring cryptocurrency tokens o
 ## Features
 
 - 🔗 **Wallet Connection**: Connect with popular EVM wallets via browser extensions (MetaMask, Trust Wallet, Coinbase Wallet, WalletConnect)
-- 🌐 **Network Switching**: Seamlessly switch between supported EVM networks with automatic network addition
+- 🌐 **Network Switching**: Seamlessly switch between supported EVM networks
 - 💰 **Token Transfers**: Send ERC-20 tokens with an intuitive interface
 - 📊 **Balance Display**: View native currency and token balances in real-time
 
