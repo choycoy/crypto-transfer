@@ -109,11 +109,11 @@ export const switchNetwork = async (network: Network): Promise<void> => {
 };
 
 /**
- * Get the POL balance of an address
- * @param address - The address to get the POL balance of
- * @returns {Promise<number>} The POL balance of the address
+ * Get the native token balance of an address
+ * @param address - The address to get the native token balance of
+ * @returns {Promise<number>} The native token balance of the address
  */
-export const getPOLBalance = async (address: string): Promise<number> => {
+export const getNativeBalance = async (address: string): Promise<number> => {
   const provider = new BrowserProvider(window.ethereum!);
   const balanceWei = await provider.getBalance(address);
 

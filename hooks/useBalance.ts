@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { getPOLBalance, getTokenBalance } from '@/utils/wallet';
+import { getNativeBalance, getTokenBalance } from '@/utils/wallet';
 import { Token } from '@/constants/service';
 
 const MIN_LOADING_TIME = 200; // 0.2 seconds
@@ -17,7 +17,7 @@ export function useBalance(walletAddress: string) {
     const startTime = Date.now();
 
     try {
-      const balance = await getPOLBalance(walletAddress);
+      const balance = await getNativeBalance(walletAddress);
 
       const elapsedTime = Date.now() - startTime;
       const remainingTime = Math.max(0, MIN_LOADING_TIME - elapsedTime);
