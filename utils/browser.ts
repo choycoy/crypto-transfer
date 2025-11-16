@@ -83,3 +83,34 @@ export const isMobileOrTablet = (): boolean => {
       !hasFinePointer)
   );
 };
+
+/**
+ * Detect the operating system and browser of the current device
+ * @returns {Object} An object containing the operating system and browser information
+ */
+export function detectOSAndBrowser() {
+  const ua = navigator.userAgent;
+
+  // Determine the operating system
+  let os = "other";
+  if (/Android/i.test(ua)) os = "android";
+  else if (/iPhone|iPad|iPod/i.test(ua)) os = "ios";
+  else if (/Macintosh|MacIntel|MacPPC|Mac68K/i.test(ua)) os = "mac";
+  else if (/Win32|Win64|Windows/i.test(ua)) os = "windows";
+  else if (/Linux/i.test(ua)) os = "linux";
+
+  // Determine the browser
+  let browser = "other";
+  if (/Chrome/i.test(ua) && !/Edg/i.test(ua))
+    browser = "chrome"; // Exclude Edge
+  else if (/Edg/i.test(ua)) browser = "edge";
+  else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) browser = "safari";
+  else if (/Firefox/i.test(ua)) browser = "firefox";
+
+  const isAndroid = /Android/i.test(ua);
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+  const isChrome = /Chrome/i.test(ua);
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+
+  return { os, browser, isAndroid, isIOS, isChrome, isSafari };
+}

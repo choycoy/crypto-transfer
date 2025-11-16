@@ -6,13 +6,14 @@ import ErrorMessage from '@/components/ErrorMessage';
 import Header from '@/components/Header';
 import ConnectWalletPrompt from '@/components/ConnectWalletPrompt';
 import TransferForm from '@/components/TransferForm';
-import { WALLET_LIST, SUPPORTED_NETWORKS } from '@/constants/service';
+import { WALLET_LIST, SUPPORTED_NETWORKS, WALLET_APP } from '@/constants/service';
 import { useWallet } from '@/hooks/useWallet';
 import { useBalance } from '@/hooks/useBalance';
 import { useNetwork } from '@/hooks/useNetwork';
 import { isMobileOrTablet } from '@/utils/browser';
 import { sendToken } from '@/utils/wallet';
 import SuccessMessage from '@/components/SuccessMessage';
+import { redirectToWallet } from '@/utils/deeplink';
 
 export default function CryptoTransferContainer() {
   const [showWalletModal, setShowWalletModal] = useState(false);
@@ -65,10 +66,30 @@ export default function CryptoTransferContainer() {
     }
   }, [isConnected, selectedToken, fetchNativeBalance, fetchTokenBalance]);
 
-  // Perform wallet connection
+  // Perform wallet connection or mobile deeplink
   const performWalletConnection = async (walletName?: string) => {
     try {
       setConnectingWallet(walletName);
+      // If on mobile/tablet and a specific wallet was chosen, use deeplink
+      if (walletName && isMobileOrTablet()) {
+        const params = new URLSearchParams();
+        const targetUrl = window.location.href;
+        const walletKey =
+          walletName === 'MetaMask'
+            ? 'metamask'
+            : walletName === 'Trust Wallet'
+            ? 'trust'
+            : undefined;
+
+
+          redirectToWallet({ wallet: walletKey as (typeof WALLET_APP)[keyof typeof WALLET_APP], targetUrl, params });
+
+        setShowWalletModal(false);
+        setConnectingWallet(undefined);
+        return;
+      }
+
+      // Desktop or no specific wallet chosen -> use normal connection
       await connect(selectedNetwork);
       setShowWalletModal(false);
       setConnectingWallet(undefined);

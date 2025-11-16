@@ -85,7 +85,7 @@ export const TOKEN_LIST: Token[] = [
   },
 ];
 
-// Wallet 리스트
+// Wallet List
 export const WALLET_LIST = [
   {
     name: 'MetaMask',
@@ -99,16 +99,10 @@ export const WALLET_LIST = [
     color: 'from-blue-600 to-indigo-600',
     description: 'Secure mobile & desktop wallet',
   },
-  {
-    name: 'Coinbase Wallet',
-    icon: '💼',
-    color: 'from-blue-500 to-cyan-500',
-    description: 'User-friendly self-custody wallet',
-  },
-  {
-    name: 'WalletConnect',
-    icon: '🔗',
-    color: 'from-purple-500 to-pink-500',
-    description: 'Connect 350+ wallets',
-  },
+
 ];
+
+export const WALLET_APP = {
+  METAMASK: "metamask",
+  TRUST: "trust",
+} as const;
